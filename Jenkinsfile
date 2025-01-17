@@ -13,7 +13,7 @@ pipeline {
         stage ('Building'){
             steps {
                 // Example Docker command
-                sh 'echo "Building the application..."'
+                sh 'docker ps -a'
             }
         }
         stage ('Testing'){
