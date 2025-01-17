@@ -1,7 +1,7 @@
 pipeline { 
     agent any
     stages {
-        stage ('Teardown'){
+        stage ('Teardown1'){
             steps {
                 sh 'docker stop $(docker ps -a -q)'
                 sh 'docker rm $(docker ps -a -q)'
