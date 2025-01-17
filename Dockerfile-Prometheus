@@ -1,0 +1,10 @@
+FROM ubuntu:20.04
+
+RUN apt-get update && apt-get install -y curl
+
+# Install Prometheus Node Exporter
+ADD https://github.com/prometheus/node_exporter/releases/download/v1.6.1/node_exporter-1.6.1.linux-amd64.tar.gz /tmp/node_exporter.tar.gz
+RUN tar -xzf /tmp/node_exporter.tar.gz -C /tmp && mv /tmp/node_exporter-1.6.1.linux-amd64/node_exporter /usr/local/bin/ && rm -rf /tmp/node_exporter*
+
+# Start Node Exporter
+CMD ["node_exporter"]

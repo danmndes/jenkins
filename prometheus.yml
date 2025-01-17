@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: "prometheus-agent"
+    static_configs:
+      - targets: ["prometheus-agent:9100"]
