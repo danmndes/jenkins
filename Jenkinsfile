@@ -1,15 +1,6 @@
 pipeline { 
     agent any
     stages {
-        stage ('Teardown1'){
-            steps {
-                sh 'docker stop $(docker ps -a -q)'
-                sh 'docker rm $(docker ps -a -q)'
-                sh 'docker network rm jenkins'
-                sh 'docker volume rm $(docker volume ls -q)'
-                sh 'docker system prune -f'
-            }
-        }
         stage ('Building and Running Docker Images'){
             steps {
                 // Check Docker version to verify access to Docker daemon
